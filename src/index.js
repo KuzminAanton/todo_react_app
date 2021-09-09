@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/scss/bootstrap.scss'
 import './index.scss';
-import 'fontsource-roboto';
-// import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
-// import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
-import App from './App';
+import "@fontsource/roboto";import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
