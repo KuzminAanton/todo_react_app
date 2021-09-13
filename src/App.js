@@ -1,55 +1,29 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.scss';
-import Header from "./components/Header";
-import List from "./components/List";
-
-let allList = [];
+import Header from "./components/Header/Header";
+import List from "./components/List/List";
+import axios from "axios";
 
 function App() {
 
-  const [allListState, setAllListState] = useState(allList);
+  const [allList, setAllList] = useState([]);
 
-  console.log(allListState)
-  const [mainInputValue, setMainInputValue] = useState("");
-
-  const mainInput = {
-    onInputState: setMainInputValue,
-    value: mainInputValue,
-    classStyle: "form-control"
-  }
-
-  const addNote = () => {
-    allList.push({
-      text: mainInputValue,
-      isCheck: false
+  useEffect(() => {
+    axios.get('http://localhost:8000/allTasks').then((res) => {
+      setAllList(res.data.data);
     });
-    setAllListState(allList);
-    clearInput();
-  };
+  }, [setAllList]);
 
-  const clearInput = () => {
-    setMainInputValue("");
-  };
 
-  const mainButton = {
-    add: {
-      func: addNote,
-      value: "add",
-      classStyle: "btn-success"
-    },
-    cancel: {
-      func: clearInput,
-      value: "Clear",
-      classStyle: "btn-danger"
-    }
-  }
 
   return (
     <div className="App">
-      <Header sendInput={mainInput}
-              sendButton={mainButton}
+      <Header allList={allList}
+              setAllList={setAllList}
       />
-      <List allList={allListState} setAllListState={setAllListState}/>
+      <List allList={allList}
+            setAllList={setAllList}
+      />
     </div>
   );
 }
