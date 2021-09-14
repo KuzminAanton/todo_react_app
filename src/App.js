@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import './App.scss';
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import axios from "axios";
+import {Container} from "@mui/material";
 
-function App() {
+import './App.scss';
 
+const App = () => {
   const [allList, setAllList] = useState([]);
 
   useEffect(() => {
@@ -14,18 +15,24 @@ function App() {
     });
   }, [setAllList]);
 
-
-
   return (
-    <div className="App">
-      <Header allList={allList}
-              setAllList={setAllList}
-      />
-      <List allList={allList}
-            setAllList={setAllList}
-      />
-    </div>
+    <>
+      <Container
+        sx={{
+          mt: '2rem'
+        }}
+      >
+        <Header
+          allList={allList}
+          setAllList={setAllList}
+        />
+        <List
+          allList={allList}
+          setAllList={setAllList}
+        />
+      </Container>
+    </>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import './ListItem.scss';
 import ListItemStatic from "./ListItemStatic";
 import ListItemEdit from "./ListItemEdit";
+import './ListItem.scss';
 
 const ListItem = (props) => {
 
