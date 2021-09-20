@@ -35,8 +35,8 @@ const List = (props) => {
     );
   };
 
-  const changeEditStatus = async (index) => {
-    await goToEdit(index);
+  const changeEditStatus =  (index) => {
+     goToEdit(index);
   };
 
   const changeIsCheck = (index) => {
@@ -83,7 +83,7 @@ const List = (props) => {
                   >
                     <Checkbox
                       checked={allList[index].isCheck}
-                      onChange={async () => await changeIsCheck(index)}
+                      onChange={ () =>  changeIsCheck(index)}
                     />
                     <Box
                       sx={{ width: 136 }}
@@ -94,7 +94,7 @@ const List = (props) => {
                       <Button size="small"
                               variant="outlined"
                               color="warning"
-                              onClick={async () => await changeEditStatus(index)}
+                              onClick={ () =>  changeEditStatus(index)}
                       >
                         <ModeEditOutlineOutlined/>
                       </Button>

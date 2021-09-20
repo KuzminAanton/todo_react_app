@@ -19,7 +19,7 @@ const App = () => {
     });
   }, [setAllList]);
 
-  const goToEdit = async (index) => {
+  const goToEdit = (index) => {
     setIndexEdit(index);
     history.push(`/edit/${index + 1}`);
   };
