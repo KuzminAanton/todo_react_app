@@ -7,6 +7,7 @@ import Header from './Header';
 
 const Static = (props) => {
   const { allList, setAllList, goToEdit } = props;
+
   const deleteTaskAll = () => {
     axios.delete('http://localhost:8000/deleteTaskAll').then(
       (res) => setAllList([...res.data.data]),
@@ -31,6 +32,7 @@ const Static = (props) => {
 
       >
         <Button
+          disabled={allList.length <= 1}
           className="btn-delete-all"
           onClick={deleteTaskAll}
           color="error"

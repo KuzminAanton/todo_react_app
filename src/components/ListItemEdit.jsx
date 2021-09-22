@@ -4,12 +4,14 @@ import {
   Box,
   Button,
   Card,
-  TextField,
+  TextField, Typography,
 } from '@mui/material';
 import { Cancel, CheckCircle } from '@mui/icons-material';
 
 const ListItemEdit = (props) => {
-  const { allList, setAllList, indexEdit, goToStatic } = props;
+  const {
+    allList, setAllList, indexEdit, goToStatic,
+  } = props;
   const [inputValue, setInputValue] = useState(allList[indexEdit]?.text);
   const [placeholder, setPlaceholder] = useState('');
 
@@ -35,6 +37,18 @@ const ListItemEdit = (props) => {
 
   return (
     <Box mt="1.5rem">
+      <header>
+        <div className="header-title">
+          <Typography
+            variant="h2"
+            fontWeight={700}
+            color="color_h1"
+            align="center"
+          >
+            To-Do List
+          </Typography>
+        </div>
+      </header>
       <Card>
         <TextField
           defaultValue={inputValue}
@@ -47,12 +61,13 @@ const ListItemEdit = (props) => {
         <Box
           m="20px 0"
           display="flex"
-          justifyContent="center">
+          justifyContent="center"
+        >
           <Button onClick={editItemAccept}>
-            <CheckCircle/>
+            <CheckCircle />
           </Button>
           <Button onClick={closeInputValue}>
-            <Cancel/>
+            <Cancel />
           </Button>
         </Box>
       </Card>

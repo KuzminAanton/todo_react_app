@@ -26,6 +26,7 @@ body {
 
 header {
   height: 160px;
+  margin-bottom: 1rem;
 }
 
 .header-inputs {
@@ -59,18 +60,60 @@ header {
   text-decoration: line-through;
 }
 
-.btn-delete-all {
-  background-color: white !important;
+button.btn-delete-all {
+  background-color: #fff;
 }
 
 .text-field-main-input {
-  background-color: white !important;
+  background-color: #fff !important;
   border: none;
   border-radius: 5px;
 }
 
 .btn-main-header {
   background-color: white !important;
+}
+
+.wrapper-lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: calc(100% - 260px);
+  overflow-y: auto;
+
+  & > .list-item-disabled {
+    background-color: rgba(133, 117, 117, 0.74);
+  }
+
+  & > .list-item {
+    width: 46%;
+    height: fit-content;
+    margin: 0 2% 1rem 2%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #68a5dc;
+    border-radius: 9em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #23d5ab;
+    border-radius: 9em;
+  }
+}
+
+.list-item-btn {
+  & > button {
+    background-color: #fff;
+  }
+}
+
+.list-item-btn__disabled {
+  & > button.list-item-btn-edit {
+    background-color: transparent;
+  }
 }
 
 @media (max-width: 600px) {
@@ -87,12 +130,23 @@ header {
   }
 
   .main-btns {
+    justify-content: space-around;
+    width: 40%;
     margin: 15px 0 0;
+  }
+
+  header {
+    margin-bottom: 2.5rem;
   }
 }
 
 @media (max-width: 900px) {
   .wrapper-lists {
     justify-content: center !important;
+
+    & > .list-item {
+      width: 97%;
+      margin: 0 0 1rem;
+    }
   }
 }
