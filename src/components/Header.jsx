@@ -9,7 +9,7 @@ import { Backspace, NoteAdd } from '@mui/icons-material';
 import axios from 'axios';
 
 const Header = (props) => {
-  const { allList, setAllList, indexEdit } = props;
+  const { allList, setAllList } = props;
   const [inputValue, setInputValue] = useState('');
   const [placeholder, setPlaceholder] = useState('');
 
@@ -52,34 +52,32 @@ const Header = (props) => {
         className="header-inputs"
       >
         <TextField
-          disabled={indexEdit >= 0 && true}
           value={inputValue}
           placeholder={placeholder}
           variant="outlined"
           style={{
-            backgroundColor: `${indexEdit >= 0 ? 'lightgray' : 'white'}`,
+            backgroundColor: 'white',
             border: 'none',
-            borderRadius: '5px' }}
+            borderRadius: '5px',
+          }}
           fullWidth
           onChange={(event) => setInputValue(event.target.value)}
         />
         <Box display="flex" className="main-btns">
           <Button
-            disabled={indexEdit >= 0 && true}
             onClick={addNote}
             variant="outlined"
             color="success"
             style={{ backgroundColor: 'white' }}
           >
-            <NoteAdd/>
+            <NoteAdd />
           </Button>
           <Button
-            disabled={indexEdit >= 0 && true}
             onClick={clearInputValue}
             variant="outlined"
             style={{ backgroundColor: 'white' }}
           >
-            <Backspace/>
+            <Backspace />
           </Button>
         </Box>
       </Box>

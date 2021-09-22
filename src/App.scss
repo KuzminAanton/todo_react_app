@@ -20,12 +20,25 @@ body {
   }
 }
 
+header {
+  height: 160px;
+}
+
+.header-title {
+  & > h2 {
+    @media (max-width: 600px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
 .header-inputs {
   justify-content: space-between;
 
   @media (max-width: 600px) {
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 5px;
   }
 }
 
@@ -33,4 +46,37 @@ body {
   @media (max-width: 600px) {
     margin: 15px 0 0;
   }
+}
+
+.box-list-wrapper {
+  height: calc(100% - 260px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #68a5dc;
+    border-radius: 9em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #23d5ab;
+    border-radius: 9em;
+  }
+}
+
+.item-main-text {
+  &:hover {
+    position: relative;
+    overflow-wrap: break-word;
+  }
+}
+
+.wrapper-lists {
+  @media (max-width: 900px) {
+    justify-content: center !important;
+  }
+}
+
+.text-through {
+  text-decoration: line-through;
 }

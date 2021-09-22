@@ -40,7 +40,7 @@ const ListItemEdit = (props) => {
           defaultValue={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
           multiline
-          maxRows={5}
+          rows={10}
           fullWidth
           placeholder={placeholder}
         />

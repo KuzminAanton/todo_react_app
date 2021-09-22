@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Redirect, Route, Switch, useHistory } from "react-router-dom";
-import { Container } from '@mui/material';
+import {
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+} from '@mui/material';
+import { DeleteSweep } from '@mui/icons-material';
 import Header from './components/Header';
-import List from "./components/List";
-import ListItemEdit from "./components/ListItemEdit";
+import List from './components/List';
+import ListItemEdit from './components/ListItemEdit';
 
 import './App.scss';
 
 const App = () => {
-  let history = useHistory();
+  const history = useHistory();
   const [allList, setAllList] = useState([]);
-  const [indexEdit, setIndexEdit] = useState(-1);
+  const [indexEdit, setIndexEdit] = useState();
 
   useEffect(() => {
     axios.get('http://localhost:8000/allTasks').then((res) => {
@@ -25,30 +36,55 @@ const App = () => {
   };
 
   const goToStatic = () => {
-    history.push(`/static/`);
+    history.push('/static/');
     setIndexEdit(-1);
+  };
+
+  const deleteTaskAll = () => {
+    axios.delete('http://localhost:8000/deleteTaskAll').then(
+      (res) => {
+        setAllList([...res.data.data]);
+      },
+    );
   };
 
   return (
     <Container
       sx={{
-        mt: '2rem',
+        height: '96vh',
       }}
     >
-      <Header
-        allList={allList}
-        setAllList={setAllList}
-        indexEdit={indexEdit}
-      />
       <Switch>
-        <Route path='/static/'>
+        <Route path="/static/">
+          <Header
+            allList={allList}
+            setAllList={setAllList}
+          />
           <List
             allList={allList}
             setAllList={setAllList}
             goToEdit={goToEdit}
           />
+          <Box
+            m="1.5rem 0 2rem 0"
+            display="flex"
+            justifyContent="center"
+          >
+            <Button
+              onClick={deleteTaskAll}
+              color="error"
+              variant="outlined"
+              size="small"
+              style={{ backgroundColor: 'white' }}
+            >
+              <Typography m="0 10px 0 10px" variant="span">
+                Delete All
+              </Typography>
+              <DeleteSweep />
+            </Button>
+          </Box>
         </Route>
-        <Route path='/edit/:_id'>
+        <Route path="/edit/:_id">
           <ListItemEdit
             allList={allList}
             setAllList={setAllList}
@@ -56,7 +92,7 @@ const App = () => {
             goToStatic={goToStatic}
           />
         </Route>
-        <Redirect from='/' exact to='/static'/>
+        <Redirect from="/" exact to="/static" />
       </Switch>
     </Container>
   );
