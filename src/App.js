@@ -7,15 +7,10 @@ import {
   useHistory,
 } from 'react-router-dom';
 import {
-  Box,
-  Button,
   Container,
-  Typography,
 } from '@mui/material';
-import { DeleteSweep } from '@mui/icons-material';
-import Header from './components/Header';
-import List from './components/List';
 import ListItemEdit from './components/ListItemEdit';
+import Static from './components/Static';
 
 import './App.scss';
 
@@ -40,49 +35,15 @@ const App = () => {
     setIndexEdit(-1);
   };
 
-  const deleteTaskAll = () => {
-    axios.delete('http://localhost:8000/deleteTaskAll').then(
-      (res) => {
-        setAllList([...res.data.data]);
-      },
-    );
-  };
-
   return (
-    <Container
-      sx={{
-        height: '96vh',
-      }}
-    >
+    <Container className="app">
       <Switch>
         <Route path="/static/">
-          <Header
-            allList={allList}
-            setAllList={setAllList}
-          />
-          <List
+          <Static
             allList={allList}
             setAllList={setAllList}
             goToEdit={goToEdit}
           />
-          <Box
-            m="1.5rem 0 2rem 0"
-            display="flex"
-            justifyContent="center"
-          >
-            <Button
-              onClick={deleteTaskAll}
-              color="error"
-              variant="outlined"
-              size="small"
-              style={{ backgroundColor: 'white' }}
-            >
-              <Typography m="0 10px 0 10px" variant="span">
-                Delete All
-              </Typography>
-              <DeleteSweep />
-            </Button>
-          </Box>
         </Route>
         <Route path="/edit/:_id">
           <ListItemEdit

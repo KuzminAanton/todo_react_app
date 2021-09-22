@@ -20,32 +20,16 @@ body {
   }
 }
 
+.app {
+  height: 96vh;
+}
+
 header {
   height: 160px;
 }
 
-.header-title {
-  & > h2 {
-    @media (max-width: 600px) {
-      font-size: 2.5rem;
-    }
-  }
-}
-
 .header-inputs {
   justify-content: space-between;
-
-  @media (max-width: 600px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 5px;
-  }
-}
-
-.main-btns {
-  @media (max-width: 600px) {
-    margin: 15px 0 0;
-  }
 }
 
 .box-list-wrapper {
@@ -71,12 +55,44 @@ header {
   }
 }
 
-.wrapper-lists {
-  @media (max-width: 900px) {
-    justify-content: center !important;
+.text-through {
+  text-decoration: line-through;
+}
+
+.btn-delete-all {
+  background-color: white !important;
+}
+
+.text-field-main-input {
+  background-color: white !important;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-main-header {
+  background-color: white !important;
+}
+
+@media (max-width: 600px) {
+  .header-title {
+    & > h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .header-inputs {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+  .main-btns {
+    margin: 15px 0 0;
   }
 }
 
-.text-through {
-  text-decoration: line-through;
+@media (max-width: 900px) {
+  .wrapper-lists {
+    justify-content: center !important;
+  }
 }

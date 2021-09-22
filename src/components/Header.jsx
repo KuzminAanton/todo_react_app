@@ -52,30 +52,26 @@ const Header = (props) => {
         className="header-inputs"
       >
         <TextField
+          className="text-field-main-input"
           value={inputValue}
           placeholder={placeholder}
           variant="outlined"
-          style={{
-            backgroundColor: 'white',
-            border: 'none',
-            borderRadius: '5px',
-          }}
           fullWidth
           onChange={(event) => setInputValue(event.target.value)}
         />
         <Box display="flex" className="main-btns">
           <Button
+            className="btn-main-header"
             onClick={addNote}
             variant="outlined"
             color="success"
-            style={{ backgroundColor: 'white' }}
           >
             <NoteAdd />
           </Button>
           <Button
+            className="btn-main-header"
             onClick={clearInputValue}
             variant="outlined"
-            style={{ backgroundColor: 'white' }}
           >
             <Backspace />
           </Button>

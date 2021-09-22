@@ -53,7 +53,8 @@ const List = (props) => {
         {allList.map((value, index) => (
           <Grid
             maxWidth="100%"
-            item xs={2}
+            item
+            xs={2}
             sm={6}
             md={6}
             key={index}
@@ -76,7 +77,9 @@ const List = (props) => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Grid container justifyContent="space-between"
+                  <Grid
+                    container
+                    justifyContent="space-between"
                   >
                     <Checkbox
                       checked={allList[index].isCheck}
@@ -95,7 +98,7 @@ const List = (props) => {
                         color="warning"
                         onClick={() => changeEditStatus(index)}
                       >
-                        <ModeEditOutlineOutlined/>
+                        <ModeEditOutlineOutlined />
                       </Button>
                       <Button
                         size="small"
@@ -103,7 +106,7 @@ const List = (props) => {
                         variant="outlined"
                         color="error"
                       >
-                        <RestoreFromTrashOutlined/>
+                        <RestoreFromTrashOutlined />
                       </Button>
                     </Box>
                   </Grid>
