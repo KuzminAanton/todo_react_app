@@ -1,3 +1,160 @@
-.App {
-  text-align: center;
+body {
+  height: 100%;
+  font-family: "Roboto", serif;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app {
+  height: 96vh;
+}
+
+header {
+  height: 160px;
+  margin-bottom: 1rem;
+}
+
+.header-inputs {
+  justify-content: space-between;
+
+  & > .text-field-main-input {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.box-list-wrapper {
+  height: calc(100% - 260px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #68a5dc;
+    border-radius: 9em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #23d5ab;
+    border-radius: 9em;
+  }
+}
+
+.item-main-text {
+  &:hover {
+    position: relative;
+    overflow-wrap: break-word;
+  }
+}
+
+.text-through {
+  text-decoration: line-through;
+}
+
+button.btn-delete-all {
+  background-color: #fff;
+}
+
+.wrapper-lists-grid {
+  height: calc(100% - 260px);
+}
+
+.wrapper-lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-height: 100%;
+  overflow-y: auto;
+
+  & > .list-item-disabled {
+    background-color: rgba(133, 117, 117, 0.74);
+  }
+
+  & > .list-item {
+    width: 46%;
+    height: fit-content;
+    margin: 0 2% 1rem 2%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #68a5dc;
+    border-radius: 9em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #23d5ab;
+    border-radius: 9em;
+  }
+}
+
+.list-item-btn {
+  & > button {
+    background-color: #fff;
+  }
+}
+
+.main-btns {
+  & > button.btn-main-header {
+    background-color: #fff;
+  }
+}
+
+.list-item-btn__disabled {
+  & > button.list-item-btn-edit {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-title {
+    & > h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .header-inputs {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+  .main-btns {
+    justify-content: space-around;
+    width: 40%;
+    margin: 15px 0 0;
+  }
+
+  header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper-lists-grid {
+    & > .wrapper-lists {
+      justify-content: center;
+
+      & > .list-item {
+        width: 97%;
+        margin: 0 0 1rem;
+      }
+    }
+  }
 }
