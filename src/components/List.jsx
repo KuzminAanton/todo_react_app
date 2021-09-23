@@ -7,9 +7,9 @@ import {
 import {
   Box,
   Button,
-  Card, CardActionArea,
+  Card,
   CardActions,
-  CardContent, CardMedia,
+  CardContent,
   Checkbox,
   Grid,
   Typography,
@@ -42,63 +42,64 @@ const List = (props) => {
   };
 
   return (
-      <Grid className="wrapper-lists">
-        {allList.map((value, index) => (
-          <Card className={`list-item ${allList[index].isCheck ? 'list-item-disabled' : ''}`}>
-            <CardContent>
-              <Typography variant="h5" component="span">
-                {`${index + 1}`}
-              </Typography>
-              <Typography
-                className={`item-main-text ${allList[index].isCheck ? 'text-through' : ''}`}
-                variant="body2"
-                color="text.secondary"
-                component="p"
-                textOverflow="ellipsis"
-                overflow="hidden"
-              >
-                {allList[index].text}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-              >
-                <Checkbox
-                  checked={allList[index].isCheck}
-                  onChange={() => changeIsCheck(index)}
-                />
+      <Grid className="wrapper-lists-grid">
+        <Box className="wrapper-lists">
+          {allList.map((value, index) => (
+            <Card className={`list-item ${value.isCheck ? 'list-item-disabled' : ''}`}>
+              <CardContent>
+                <Typography variant="h5" component="span">
+                  {`${index + 1}`}
+                </Typography>
+                <Typography
+                  className={`item-main-text ${value.isCheck ? 'text-through' : ''}`}
+                  variant="body2"
+                  color="text.secondary"
+                  component="p"
+                  textOverflow="ellipsis"
+                  overflow="hidden"
+                >
+                  {value.text}
+                </Typography>
+              </CardContent>
+              <CardActions>
                 <Box
-                  sx={{ width: 136 }}
                   display="flex"
                   justifyContent="space-between"
-                  alignItems="center"
-                  className={`list-item-btn ${allList[index].isCheck ? 'list-item-btn__disabled' : ''}`}
                 >
-                  <Button
-                    className="list-item-btn-edit"
-                    disabled={allList[index].isCheck}
-                    size="small"
-                    variant="outlined"
-                    color="warning"
-                    onClick={() => changeEditStatus(index)}
+                  <Checkbox
+                    checked={value.isCheck}
+                    onChange={() => changeIsCheck(index)}
+                  />
+                  <Box
+                    display="flex"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    className={`list-item-btn ${value.isCheck ? 'list-item-btn__disabled' : ''}`}
                   >
-                    <ModeEditOutlineOutlined />
-                  </Button>
-                  <Button
-                    size="small"
-                    onClick={() => deleteTask(index)}
-                    variant="outlined"
-                    color="error"
-                  >
-                    <RestoreFromTrashOutlined />
-                  </Button>
+                    <Button
+                      className="list-item-btn-edit"
+                      disabled={value.isCheck}
+                      size="small"
+                      variant="outlined"
+                      color="warning"
+                      onClick={() => changeEditStatus(index)}
+                    >
+                      <ModeEditOutlineOutlined />
+                    </Button>
+                    <Button
+                      size="small"
+                      onClick={() => deleteTask(index)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      <RestoreFromTrashOutlined />
+                    </Button>
+                  </Box>
                 </Box>
-              </Box>
-            </CardActions>
-          </Card>
-        ))}
+              </CardActions>
+            </Card>
+          ))}
+        </Box>
       </Grid>
   );
 };

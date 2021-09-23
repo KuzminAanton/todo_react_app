@@ -1,5 +1,9 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Typography,
+} from '@mui/material';
 import { DeleteSweep } from '@mui/icons-material';
 import axios from 'axios';
 import List from './List';
@@ -29,10 +33,9 @@ const Static = (props) => {
         m="1.5rem 0 2rem 0"
         display="flex"
         justifyContent="center"
-
       >
         <Button
-          disabled={allList.length <= 1}
+          disabled={!allList.length}
           className="btn-delete-all"
           onClick={deleteTaskAll}
           color="error"

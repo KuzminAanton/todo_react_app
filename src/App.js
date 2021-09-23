@@ -6,9 +6,7 @@ import {
   Switch,
   useHistory,
 } from 'react-router-dom';
-import {
-  Container,
-} from '@mui/material';
+import { Container } from '@mui/material';
 import ListItemEdit from './components/ListItemEdit';
 import Static from './components/Static';
 

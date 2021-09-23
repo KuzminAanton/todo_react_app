@@ -31,6 +31,12 @@ header {
 
 .header-inputs {
   justify-content: space-between;
+
+  & > .text-field-main-input {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
 }
 
 .box-list-wrapper {
@@ -64,14 +70,8 @@ button.btn-delete-all {
   background-color: #fff;
 }
 
-.text-field-main-input {
-  background-color: #fff !important;
-  border: none;
-  border-radius: 5px;
-}
-
-.btn-main-header {
-  background-color: white !important;
+.wrapper-lists-grid {
+  height: calc(100% - 260px);
 }
 
 .wrapper-lists {
@@ -79,7 +79,7 @@ button.btn-delete-all {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  height: calc(100% - 260px);
+  max-height: 100%;
   overflow-y: auto;
 
   & > .list-item-disabled {
@@ -106,6 +106,12 @@ button.btn-delete-all {
 
 .list-item-btn {
   & > button {
+    background-color: #fff;
+  }
+}
+
+.main-btns {
+  & > button.btn-main-header {
     background-color: #fff;
   }
 }
@@ -141,12 +147,14 @@ button.btn-delete-all {
 }
 
 @media (max-width: 900px) {
-  .wrapper-lists {
-    justify-content: center !important;
+  .wrapper-lists-grid {
+    & > .wrapper-lists {
+      justify-content: center;
 
-    & > .list-item {
-      width: 97%;
-      margin: 0 0 1rem;
+      & > .list-item {
+        width: 97%;
+        margin: 0 0 1rem;
+      }
     }
   }
 }
